@@ -11,7 +11,7 @@
             const params = new URLSearchParams({
                 start_day: '12'
             });
-            fetch(url + params, {method: "GET"}).then((result) => {
+            fetch(url + params, {method: "GET", mode: 'cors'}).then((result) => {
                 const data = result.json();
                 console.log(data);
             })
