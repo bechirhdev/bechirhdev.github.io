@@ -9,9 +9,9 @@
         <script>
             const url = 'https://script.google.com/macros/s/AKfycbyeHBNVzb6t3RKJzyvCFgITIv9but_DrLBmxpXu7Ea0YZEObLUaUrSf6gFbMaZ6UBBk/exec?';
             const params = new URLSearchParams({
-                start_day: '12'
+                start_day: '77'
             });
-            fetch(url + params, {method: "GET", mode: 'cors'}).then((result) => {
+            fetch(url + params, {method: "POST", mode: 'cors'}).then((result) => {
                 const data = result.json();
                 console.log(data);
             })
