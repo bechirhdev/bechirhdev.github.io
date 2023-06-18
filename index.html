@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>test</title>
+    </head>
+    <body>
+        <script>
+            const url = 'https://script.google.com/macros/s/AKfycbyA11736l3Xz4P9mZ_P5VNktAJQcTJ7nma1QjhYs20/dev?';
+            const params = new URLSearchParams({
+                start_day: '12'
+            });
+            fetch(url + params, {method: "GET"}).then((result) => {
+                const data = result.json();
+                console.log(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        </script>
+     </body>
+</html>
