@@ -6,21 +6,28 @@
         <title>test</title>
     </head>
     <body>
-        <script>
-            addEventListener('load', function() {
-                console.log("");
-                const url = 'https://script.google.com/macros/s/AKfycbybo64BYBdv4jLYur9f_vYGZ8kkNrwoMFFOg8YKcgoKo6kDsXtwGb4uKl-pWmH0xEUE/exec';
-                const params = new URLSearchParams({
-                    start_day: '77'
-                });
-                fetch(url + params, {method: "POST"}).then((result) => {
-                    const data = result.json();
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-             });
-        </script>
+       <script src="https://apis.google.com/js/api.js"></script>
+<script>
+function start() {
+  // 2. Initialize the JavaScript client library.
+  gapi.client.init({
+    'apiKey': 'AIzaSyB_Sp5rb4OblRF9lQlEZNDVvsEAkd0qteA',
+    // clientId and scope are optional if auth is not required.
+    'clientId': '211668802199-skhll8jgb5kgcv3q9duu7tp14ag3ui6l.apps.googleusercontent.com',
+    'scope': 'profile',
+  }).then(function() {
+    // 3. Initialize and make the API request.
+    return gapi.client.request({
+      'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+    })
+  }).then(function(response) {
+    console.log(response.result);
+  }, function(reason) {
+    console.log('Error: ' + reason.result.error.message);
+  });
+};
+// 1. Load the JavaScript client library.
+gapi.load('client', start);
+</script>
      </body>
 </html>
