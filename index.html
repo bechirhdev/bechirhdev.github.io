@@ -18,12 +18,18 @@
             scope: 'https://script.google.com/macros/s/AKfycbybo64BYBdv4jLYur9f_vYGZ8kkNrwoMFFOg8YKcgoKo6kDsXtwGb4uKl-pWmH0xEUE/exec',
             plugin_name: 'irrigation'
             }).then(function() {
-            // Sign in the user and obtain
-            // Obtain the access token
-            var accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
-            console.log('Access token:', accessToken);
-            // Use the access token to make requests to the Google Sheets API
-            // ...
+
+                gapi.client.sheets.spreadsheets.values.batchGet({
+      spreadsheetId: '14kTIWVhiZ5FzFvukF0BVxnJCnnrF7VVxL4eJNcru-g8',
+      majorDimension: "COLUMNS",
+        ranges: [
+            "A2:C7"
+        ]
+
+    }).then(function(values) {
+         console.log(values)
+    });
+                
             })
             });
         </script>
