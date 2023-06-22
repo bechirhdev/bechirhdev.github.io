@@ -18,7 +18,7 @@
                     gapi.client.sheets.spreadsheets.values.batchGet({
                         spreadsheetId: '14kTIWVhiZ5FzFvukF0BVxnJCnnrF7VVxL4eJNcru-g8',
                         majorDimension: "COLUMNS",
-                        range: "Sheet1"
+                        ranges: "Sheet1"
 
                     }).then(function(values) {
                         console.log(values);
